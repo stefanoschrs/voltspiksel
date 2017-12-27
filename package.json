@@ -1,0 +1,23 @@
+{
+  "name": "voltspiksel",
+  "version": "1.0.0",
+  "description": "Self hosted image placeholders",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github:stefanoschrs/voltspiksel.git"
+  },
+  "author": "Stefanos Chrs <stefanoschrs@hotmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": "8.4.0"
+  }
+}
