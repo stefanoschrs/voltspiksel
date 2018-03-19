@@ -26,7 +26,7 @@ app.listen(port, () => {
       return
     }
 
-    images = files.map((file) => `${__dirname}/${assets}/${file}`)
+    images = files.filter((file) => file !== '.gitkeep').map((file) => `${__dirname}/${assets}/${file}`)
   })
 
   fs.readdir(assetsSFW, (error, files) => {
@@ -35,7 +35,7 @@ app.listen(port, () => {
       return
     }
 
-    imagesSFW = files.map((file) => `${__dirname}/${assetsSFW}/${file}`)
+    imagesSFW = files.filter((file) => file !== '.gitkeep').map((file) => `${__dirname}/${assetsSFW}/${file}`)
   })
 })
 
