@@ -3,15 +3,19 @@ const fs = require('fs')
 const express = require('express')
 
 const port = process.env.PORT || 1337
+
 const assets = process.env.ASSETS_DIR || 'public'
+const assetsSFW = process.env.ASSETS_SFW_DIR || 'public-sfw'
 
 const app = express()
 
-let images = []
+const getRandom = (array) => array[Math.floor(Math.random() * array.length)]
 
-app.get('/', (req, res) => {
-  res.sendFile(images[Math.floor(Math.random() * images.length)])
-})
+let images = []
+let imagesSFW = []
+
+app.get('/', (req, res) => res.sendFile(getRandom(images)))
+app.get('/sfw', (req, res) => res.sendFile(getRandom(imagesSFW)))
 
 app.listen(port, () => {
   console.log(`Listening on ${port}`)
@@ -24,4 +28,14 @@ app.listen(port, () => {
 
     images = files.map((file) => `${__dirname}/${assets}/${file}`)
   })
+
+  fs.readdir(assetsSFW, (error, files) => {
+    if (error) {
+      console.error(error)
+      return
+    }
+
+    imagesSFW = files.map((file) => `${__dirname}/${assetsSFW}/${file}`)
+  })
 })
+

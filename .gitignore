@@ -2,3 +2,6 @@ node_modules
 
 public/*
 !public/.gitkeep
+
+public-sfw/*
+!public-sfw/.gitkeep
